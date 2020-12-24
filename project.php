@@ -111,7 +111,6 @@ function clockHandAngle2($angle, $timeNow) {
             //  return "$new_hours:$new_minutes:$new_seconds";
         }
 
-
 //        $new_seconds++;
 //        $new_minutes++;
     }

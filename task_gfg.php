@@ -1,5 +1,7 @@
 <?php
 
+// gfg - geeks for geeks
+
 // PHP program to find angle between hour and minute hands
 
 // Utility function to find minimum of two integers
