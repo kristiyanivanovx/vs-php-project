@@ -11,7 +11,7 @@
         Clock Hand Angle - Кристиян Иванов
     </title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link href="./style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 <!--    <link rel="shortcut icon" type="image/x-icon" href="/static/img/favicon.ico">-->
     <script src="https://kit.fontawesome.com/c952ac5cde.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
