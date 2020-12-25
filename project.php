@@ -30,7 +30,7 @@ function calcAngle($hours, $minutes, $seconds)
         $hours += 1;
 
         if ($hours > 12) {
-            $hours = $hours - 12;
+            $hours -= 12;
         }
     }
 
@@ -81,9 +81,10 @@ function clockHandAngle2($angle, $timeNow)
         }
 
         if ($new_minutes == 60) {
-            $new_hours += 1;;
+            $new_hours += 1;
             $new_minutes = 0;
         }
+
         if ($new_hours > 12) {
             $new_hours -= 12;
         }
@@ -94,7 +95,6 @@ function clockHandAngle2($angle, $timeNow)
 
         $new_minutes += 0.125; // 1, 0.5, 0.25, 0.125
 
-//        $new_angle = calcAngle($new_hours, $new_minutes);
         $new_angle = calcAngle($new_hours, $new_minutes, $new_seconds);
 
         if ($new_minutes == 60) {
@@ -162,5 +162,5 @@ function TestCHA2()
     echo "9. ", clockHandAngle2(11, "8:45:54"), "<br><br>"; // "9:47:05" // gives  0:2:0
 }
 
-TestCHA();
-//TestCHA2();
+//TestCHA();
+TestCHA2();
