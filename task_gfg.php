@@ -38,7 +38,6 @@ function calcAngle($hours, $minutes)
     }
 
     // Calculate the angles moved by hour and minute hands with reference to 12:00
-
     $hour_angle = 0.5 * ($hours * 60 + $minutes);
     $minute_angle = 6 * $minutes;
 

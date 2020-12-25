@@ -95,15 +95,12 @@
         </div>
     </div>
 </div>
-
-
-
+s
 <!-- Footer -->
 
 <footer class="col-12 text-center">
 <!--    <div class="container-fluid">-->
-        <h6 class="footer-bottom-text">2020. Clock Hand Angle. Кристиян Иванов.</h6>
-
+    <h6 class="footer-bottom-text">2020. Clock Hand Angle. Кристиян Иванов.</h6>
 </footer>
 <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
