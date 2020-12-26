@@ -123,14 +123,24 @@ function clockHandAngle2($angle, $timeNow): string
 //                $new_hours = "0" . $new_hours;
 //            }
 
-//            $match = "$new_hours:$new_minutes:$new_seconds";
-            $match = "Angle found - $new_hours:$new_minutes:$new_seconds <br>
-                        New Angle = $new_angle <br>
-                        Old Angle = $angle";
+            $match = "$new_hours:$new_minutes:$new_seconds";
+//            $match = "Angle found - $new_hours:$new_minutes:$new_seconds <br>
+//                        New Angle = $new_angle <br>
+//                        Old Angle = $angle";
 
             return $match;
         }
     }
+}
+
+function Main() {
+    if (isset($_POST['angle']) && isset($_POST['time'])) {
+        $result = clockHandAngle2($_POST['angle'], $_POST['time']);
+        echo "$result";
+
+
+    }
+
 }
 
 // tests
@@ -153,7 +163,7 @@ function TestCHA()
 
 function TestCHA2()
 {
-//    echo "1. ", clockHandAngle2(0, "12:00:00"), "<br><br>"; // "12:00:00" // gives 12:0:0
+    echo "1. ", clockHandAngle2(0, "12:00:00"), "<br><br>"; // "12:00:00" // gives 12:0:0
     echo "2. ", clockHandAngle2(0, "12:00:01"), " <br>-> Expected: 1:05:27<br><br>"; // gives 12:0:0
     echo "3. ", clockHandAngle2(30, "12:54:17"), "<br>-> Expected: 1:00:00<br><br>"; // gives  1:0:0
     echo "4. ", clockHandAngle2(90, "12:00:00"), "<br>-> Expected: 12:16:21<br><br>"; // gives 3:0:0
@@ -165,4 +175,6 @@ function TestCHA2()
 }
 
 //TestCHA();
-TestCHA2();
+//TestCHA2();
+Main();
+
