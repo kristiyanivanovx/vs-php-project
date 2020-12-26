@@ -73,6 +73,9 @@ function calcAngle($hours, $minutes, $seconds)
  */
 function clockHandAngle2($angle, $timeNow): string
 {
+    // to do: check if angle is numeric and between 0 and 180
+    // to do: check if time is numeric and in range
+
     // starting values
     list($hours, $minutes, $seconds) = explode(":", $timeNow);
 
@@ -138,12 +141,14 @@ function Main(): string {
         $GLOBALS['result'] = clockHandAngle2($_POST['angle'], $_POST['time']);
         return true;
     }
+
+    return false;
+
 //    else {
 //        $error = 'Error ocurred!';
 //        print $error;
 //        return false;
 //    }
-    return false;
 }
 
 // tests
