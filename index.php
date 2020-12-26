@@ -1,4 +1,3 @@
-<?php require 'project.php'?>
 
 <!DOCTYPE html>
 <html lang="bg">
@@ -57,26 +56,37 @@
                 <hr>
             </div>
             <div class="col-12">
+                <?php require 'project.php'?>
+
+                <?php
+                    Main();
+                    if (isset($GLOBALS['result'])) {
+                        echo "<div>";
+                        echo "<h5>Следващия път, когато ще има такъв ъгъл между стрелките е:</h5><br/>";
+                        echo "<h5>". $GLOBALS['result'] . "</h5>";
+                        echo "<br><br></div>";
+                    }
+
+                ?>
+
                 <form action="" method="post">
-                    <div class="d-flex justify-content-center">
-                        <label for="time">Въведете час, минути и секунди</label>
-                    </div>
-
-                    <div class="d-flex justify-content-center">
-                        <input id="time" name="time" type="text" required>
-                    </div>
-
                     <div class="d-flex justify-content-center">
                         <label for="angle">Въведете ъгъл</label>
                     </div>
-
                     <div class="d-flex justify-content-center">
                         <input id="angle" name="angle" type="text" required>
                     </div>
 
+                    <div class="d-flex justify-content-center">
+                        <label for="time">Въведете час, минути и секунди</label>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <input id="time" name="time" type="text" required>
+                    </div>
+
                     <br>
                     <div class="d-flex justify-content-center">
-                        <input id="submit" name="submit" type="submit" value="Изпрати">
+                        <input id="submit" name="submit" type="submit" value="Изчисли">
                     </div>
                 </form>
             </div>
