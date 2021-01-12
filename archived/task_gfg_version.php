@@ -17,7 +17,12 @@
 ////        $number_1 : $number_2;
 //}
 
-function calcAngle($hours, $minutes)
+/**
+ * @param $hours
+ * @param $minutes
+ * @return string
+ */
+function calcAngle($hours, $minutes): string
 {
     // validate the input
     if ($hours < 0 || $minutes < 0 ||

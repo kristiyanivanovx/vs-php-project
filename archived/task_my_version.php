@@ -45,7 +45,12 @@
 
 // $subtotal_angle = 60 * $hours; // way 2
 
-function calcAngle($hours, $minutes)
+/**
+ * @param $hours
+ * @param $minutes
+ * @return string
+ */
+function calcAngle($hours, $minutes): string
 {
     $subtotal_angle = abs(0.5 * (60 * $hours - 11 * $minutes));
 

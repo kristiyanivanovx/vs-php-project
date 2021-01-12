@@ -1,0 +1,17 @@
+{
+    "name": "Clock Hand Angle 2",
+    "short_name": "Clock Hand Angle 2",
+    "description": "Project by Kristiyan Ivanov",
+    "scope": "http://clock-hand-angle-two.herokuapp.com/",
+    "start_url": "/index.php",
+    "display": "minimal-ui",
+    "background_color": "#ffffff",
+    "theme_color": "#20d69a",
+    "icons": [
+        {
+            "src": "/static/logo.png",
+            "type": "image/png",
+            "sizes": "200x200"
+        },
+    ]
+}

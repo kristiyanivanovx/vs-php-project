@@ -1,41 +1,17 @@
 <?php
 
-// my version
-/**
- * @param $hours
- * @param $minutes
- * @return string
- */
-function calcAngleKV($hours, $minutes): string
-{
-    $subtotal_angle = abs(0.5 * (60 * $hours - 11 * $minutes));
-
-    if ($subtotal_angle > 180) {
-        $subtotal_angle = 360 - $subtotal_angle;
-    }
-
-    return abs($subtotal_angle);
-}
-
-// geeks for geeks version, modified
 /**
  * @param $hours
  * @param $minutes
  * @param $seconds
- * @return mixed
+ * @return string
  */
-function calcAngle($hours, $minutes, $seconds)
+function calcAngle($hours, $minutes, $seconds): string
 {
     // validate the input
-    if ($hours < 0 || $minutes < 0 || $minutes > 60
-//        || $hours > 12
-    ) {
-        echo "Wrong input";
+    if ($hours < 0 || $minutes < 0 || $minutes > 60 || $hours > 12) {
+        echo "Невалидни данни.";
     }
-
-//    if ($hours == 12) {
-//        $hours = 0;
-//    }
 
     if ($minutes == 60) {
         $minutes = 0;
@@ -46,24 +22,21 @@ function calcAngle($hours, $minutes, $seconds)
         }
     }
 
-    // Calculate the angles moved by hour and minute hands with reference to 12:00
-    // $hour_angle = 0.5 * ($hours * 60 + $minutes);
-    // $minute_angle = 6 * $minutes;
-
+    // calculate the angles moved by hour and minute hands with reference to 12:00
     $minute_angle = 6 * $minutes + (6 * $seconds / 60);
     $hour_angle = 30 * $hours + (30 * ($minutes + $seconds / 60) / 60);
 
-    // Find the difference between two angles
+    // find the difference between two angles
     $angle = abs($hour_angle - $minute_angle);
 
-    // Return the smaller angle  of two possible angles
+    // return the smaller angle of the two possible angles
     $angle = min(360 - $angle, $angle);
 
     return $angle;
 }
 
 // 1. get input
-// 2. increase time, check if angle matches
+// 2. increase time, check if angle *almost* matches
 // 3. if it matches, print it
 
 /**
@@ -73,82 +46,64 @@ function calcAngle($hours, $minutes, $seconds)
  */
 function clockHandAngle2($angle, $timeNow): string
 {
-    // to do: check if angle is numeric and between 0 and 180
-    // to do: check if time is numeric and in range
 
-    // starting values
-    list($hours, $minutes, $seconds) = explode(":", $timeNow);
+    // if angle is not numeric and out of bounds
+    if ($angle > 180 || $angle < 0 ||
+        (is_string($angle) && !is_numeric($angle))
+    ) {
+        return "Невалидни данни.";
+    }
 
-    // new values that we increment and search with
-    $new_hours = 0;
-    $new_minutes = 0;
-    $new_seconds = 0;
+    // to do: check if time is numeric and in range, finish up
+    try {
+        list($hours, $minutes, $seconds) = explode(":", $timeNow);
+    }
+    catch (Exception $e) {
+        return "Невалидни данни.";
+    }
 
-    // add old values to the new values, we need a time after the given time
-    $new_hours += $hours;
-    $new_minutes += $minutes;
-    $new_seconds += $seconds;
-
-    while (true)
-    {
-        // different scenarios for angles
-        $new_seconds += 1;
+    while (true) {
 
         // validations
-        if ($new_seconds >= 60) {
-            $new_minutes += 1;
-            $new_seconds -= 60;
+        if ($seconds >= 60) {
+            $minutes += 1;
+            $seconds -= 60;
         }
 
-        if ($new_minutes >= 60) {
-            $new_hours += 1;
-            $new_minutes -= 60;
+        if ($minutes >= 60) {
+            $hours += 1;
+            $minutes -= 60;
         }
 
-        if ($new_hours > 12) {
-            $new_hours -= 12;
+        if ($hours > 12) {
+            $hours -= 12;
         }
 
-        $new_angle = calcAngle($new_hours, $new_minutes, $new_seconds);
+        $new_angle = calcAngle($hours, $minutes, $seconds);
 
-//        if ($new_angle == 180) {
-//            $new_angle = 0;
-//        }
+        $margin_of_error = 0.09;
 
-        if ($new_angle == $angle) {
-//            if ($new_minutes < 10) {
-//                $new_minutes = "0" . $new_minutes;
-//            }
-//            if ($new_seconds < 10) {
-//                $new_seconds = "0" . $new_seconds;
-//            }
-//            if ($new_hours < 10) {
-//                $new_hours = "0" . $new_hours;
-//            }
+        if (abs($new_angle - $angle) < $margin_of_error) {
+            if ((strlen($minutes)) < 2) {
+                $minutes = "0" . $minutes;
+            }
+            if ((strlen($seconds)) < 2) {
+                $seconds = "0" . $seconds;
+            }
 
-            $match = "$new_hours:$new_minutes:$new_seconds";
-//            $match = "Angle found - $new_hours:$new_minutes:$new_seconds <br>
-//                        New Angle = $new_angle <br>
-//                        Old Angle = $angle";
-
-            return $match;
+            return "$hours:$minutes:$seconds";
+        }
+        else {
+            $seconds += 1;
         }
     }
 }
 
-function Main(): string {
+function Main(): void
+{
     if (isset($_POST['angle']) && isset($_POST['time'])) {
         $GLOBALS['result'] = clockHandAngle2($_POST['angle'], $_POST['time']);
-        return true;
     }
-
-    return false;
-
-//    else {
-//        $error = 'Error ocurred!';
-//        print $error;
-//        return false;
-//    }
 }
 
 // tests
@@ -171,15 +126,15 @@ function TestCHA()
 
 function TestCHA2()
 {
-    echo "1. ", clockHandAngle2(0, "12:00:00"), "<br>-> Expected: 12:00:00<br><br>"; // "12:00:00" // gives 12:0:0
-    echo "2. ", clockHandAngle2(0, "12:00:01"), " <br>-> Expected: 1:05:27<br><br>"; // gives 12:0:0
-    echo "3. ", clockHandAngle2(30, "12:54:17"), "<br>-> Expected: 1:00:00<br><br>"; // gives  1:0:0
-    echo "4. ", clockHandAngle2(90, "12:00:00"), "<br>-> Expected: 12:16:21<br><br>"; // gives 3:0:0
-    echo "5. ", clockHandAngle2(57, "11:14:54"), "<br>-> Expected: 11:49:38<br><br>"; // gives 3:6:0
-    echo "6. ", clockHandAngle2(5, "10:54:06"), "<br>-> Expected: 10:55:27<br><br>"; // gives 2:10:0
-    echo "7. ", clockHandAngle2(180, "12:30:00"), "<br>-> Expected: 12:32:43<br><br>"; // gives 6:0:0
-    echo "8. ", clockHandAngle2(129, "5:09:00"), "<br>-> Expected: 5:50:43<br><br>"; // gives 0:42:0
-    echo "9. ", clockHandAngle2(11, "8:45:54"), "<br>-> Expected: 9:47:05<br><br>"; // gives  0:2:0
+    echo "1. ", clockHandAngle2(0, "12:00:00"), "<br>-> Expected: 12:00:00<br><br>"; // gives 12:00:00
+    echo "2. ", clockHandAngle2(0, "12:00:01"), " <br>-> Expected: 1:05:27<br><br>"; // gives 1:05:27
+    echo "3. ", clockHandAngle2(30, "12:54:17"), "<br>-> Expected: 1:00:00<br><br>"; // gives 1:00:00
+    echo "4. ", clockHandAngle2(90, "12:00:00"), "<br>-> Expected: 12:16:21<br><br>"; // gives 12:16:21
+    echo "5. ", clockHandAngle2(57, "11:14:54"), "<br>-> Expected: 11:49:38<br><br>"; // gives 11:49:38
+    echo "6. ", clockHandAngle2(5, "10:54:06"), "<br>-> Expected: 10:55:27<br><br>"; // gives 10:55:27
+    echo "7. ", clockHandAngle2(180, "12:30:00"), "<br>-> Expected: 12:32:43<br><br>"; // gives 12:32:43
+    echo "8. ", clockHandAngle2(129, "5:09:00"), "<br>-> Expected: 5:50:43<br><br>"; // gives 5:50:43
+    echo "9. ", clockHandAngle2(11, "8:45:54"), "<br>-> Expected: 9:47:05<br><br>"; // gives 9:47:05
 }
 
 //TestCHA();
