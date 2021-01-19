@@ -36,7 +36,7 @@ function calcAngle($hours, $minutes, $seconds): string
 }
 
 // 1. get input
-// 2. increase time, check if angle *almost* matches
+// 2. increase time, check if angle /almost/ matches
 // 3. if it matches, print it
 
 /**
@@ -46,7 +46,6 @@ function calcAngle($hours, $minutes, $seconds): string
  */
 function clockHandAngle2($angle, $timeNow): string
 {
-
     // if angle is not numeric and out of bounds
     if ($angle > 180 || $angle < 0 ||
         (is_string($angle) && !is_numeric($angle))
@@ -102,7 +101,7 @@ function clockHandAngle2($angle, $timeNow): string
 function Main(): void
 {
     if (isset($_POST['angle']) && isset($_POST['time'])) {
-        $GLOBALS['result'] = clockHandAngle2($_POST['angle'], $_POST['time']);
+        $_SESSION['result'] = clockHandAngle2($_POST['angle'], $_POST['time']);
     }
 }
 
