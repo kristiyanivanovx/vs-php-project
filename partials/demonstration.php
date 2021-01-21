@@ -9,14 +9,14 @@
 
                 <?php
                     Main();
-                    if (isset($_SESSION['result'])) {
+                    if (isset($GLOBALS['result'])) {
                         echo "<div>";
 
-                        if ($_SESSION['result'] !== "Невалидни данни.") {
+                        if ($GLOBALS['result'] !== "Невалидни данни.") {
                             echo "<h5>Следващия път, когато ще има такъв ъгъл между стрелките е:</h5><br/>";
                         }
 
-                        echo "<h5 class='highlight'>". $_SESSION['result'] . "</h5>";
+                        echo "<h5 class='highlight'>". $GLOBALS['result'] . "</h5>";
                         echo "</div>";
                     }
                 ?>

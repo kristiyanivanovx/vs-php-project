@@ -1,5 +1,4 @@
-<?php session_start(); ?>
-<?php require 'project/project.php' ?>
+<?php require 'project.php' ?>
 
 <!DOCTYPE html>
 <html lang="bg">
