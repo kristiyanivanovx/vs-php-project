@@ -8,23 +8,9 @@
  */
 function calcAngle($hours, $minutes, $seconds): string
 {
-    // validate the input
-    if ($hours < 0 || $minutes < 0 || $minutes > 60 || $hours > 12) {
-        echo "Невалидни данни.";
-    }
-
-    if ($minutes == 60) {
-        $minutes = 0;
-        $hours += 1;
-
-        if ($hours > 12) {
-            $hours -= 12;
-        }
-    }
-
-    // calculate the angles moved by hour and minute hands with reference to 12:00
-    $minute_angle = 6 * $minutes + (6 * $seconds / 60);
+    // calculate the angles between the hour and minute hands with reference to 12:00
     $hour_angle = 30 * $hours + (30 * ($minutes + $seconds / 60) / 60);
+    $minute_angle = 6 * $minutes + (6 * $seconds / 60);
 
     // find the difference between two angles
     $angle = abs($hour_angle - $minute_angle);
@@ -36,7 +22,7 @@ function calcAngle($hours, $minutes, $seconds): string
 }
 
 // 1. get input
-// 2. increase time, check if angle *almost* matches
+// 2. increase time, check if angle /almost/ matches
 // 3. if it matches, print it
 
 /**
@@ -46,7 +32,6 @@ function calcAngle($hours, $minutes, $seconds): string
  */
 function clockHandAngle2($angle, $timeNow): string
 {
-
     // if angle is not numeric and out of bounds
     if ($angle > 180 || $angle < 0 ||
         (is_string($angle) && !is_numeric($angle))
@@ -63,7 +48,6 @@ function clockHandAngle2($angle, $timeNow): string
     }
 
     while (true) {
-
         // validations
         if ($seconds >= 60) {
             $minutes += 1;
@@ -84,9 +68,14 @@ function clockHandAngle2($angle, $timeNow): string
         $margin_of_error = 0.09;
 
         if (abs($new_angle - $angle) < $margin_of_error) {
+            if ((strlen($hours)) < 2) {
+                $hours = "0" . $hours;
+            }
+
             if ((strlen($minutes)) < 2) {
                 $minutes = "0" . $minutes;
             }
+
             if ((strlen($seconds)) < 2) {
                 $seconds = "0" . $seconds;
             }
@@ -102,7 +91,7 @@ function clockHandAngle2($angle, $timeNow): string
 function Main(): void
 {
     if (isset($_POST['angle']) && isset($_POST['time'])) {
-        $GLOBALS['result'] = clockHandAngle2($_POST['angle'], $_POST['time']);
+        $_SESSION['result'] = clockHandAngle2($_POST['angle'], $_POST['time']);
     }
 }
 
