@@ -15,8 +15,9 @@ function calcAngle($hours, $minutes, $seconds): string
     // find the difference between two angles
     $angle = abs($hour_angle - $minute_angle);
 
-    // return the smaller angle of the two possible angles
-    $angle = min(360 - $angle, $angle);
+    if ($angle > 180) {
+        $angle = 360 - $angle;
+    }
 
     return $angle;
 }
