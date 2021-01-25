@@ -5,17 +5,17 @@
 // minute hand
 // 60 minutes for 360 degrees
 // 360/60 = 6 degrees
-// 1 minute = 6 degrees
+// 1 minute = 6 degrees (per minute)
 // minute_angle = 6 * minutes; // for minute hand angle
 
 // hour hand
 // 12 hours for 360 degrees
-// 360/(60*12) = 0.5 degrees
-// hour_angle = 0.5 * (60 * hours + minutes) // get number of degrees
+// 360/(60*12) = 0.5 degrees (per minute)
+// hour_angle = 0.5 * (60 * hours + minutes) // for hour hand angle
 
-// Minute hand covers 60 minutes, Hour hand covers 5 minute distance
-// Minute hand covers 1 minutes, Hour hand covers 5/60 minutes
-// If Minute hand covers 15 minute, Hour hand covers (5/60)*15 = 5/4 minute
+// minute hand covers 60 minutes, in the same time hour hand covers 5 minute distance
+// minute hand covers 1 minutes, hour hand covers 5/60 minutes
+// if minute hand covers 15 minute, the hour hand covers (5/60)*15 = 5/4 minute
 // 5:15 = 10 minute + 5/4 minute
 // 67.5 degrees
 
@@ -52,6 +52,7 @@
  */
 function calcAngle($hours, $minutes): string
 {
+    // https://en.wikipedia.org/wiki/Clock_angle_problem
     $subtotal_angle = abs(0.5 * (60 * $hours - 11 * $minutes));
 
     if ($subtotal_angle > 180) {

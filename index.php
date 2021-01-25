@@ -13,10 +13,12 @@
     <title>
         Clock Hand Angle 2 - Кристиян Иванов
     </title>
+    <script src="https://kit.fontawesome.com/c952ac5cde.js" crossorigin="anonymous"></script>
+<!--    <script src="./js/index.js"></script>-->
+    <link rel="manifest" href="./manifest.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="static/style.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico">
-    <script src="https://kit.fontawesome.com/c952ac5cde.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
@@ -26,7 +28,7 @@
 
 <?php include 'partials/navigation.php' ?>
 
-<!-- Demonstration Section -->
+<!--  Demonstration Section -->
 
 <?php include 'partials/demonstration.php' ?>
 
@@ -41,6 +43,12 @@
 <!-- Scripts -->
 
 <?php include 'partials/scripts.php' ?>
+
+<script>
+    if ('serviceWorker' in navigator) {
+       navigator.serviceWorker.register('./js/service-worker.js');
+    }
+</script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 # vs-php-project
 
-My project for Vratsa Software php level 1 course
+My project for Vratsa Software's php level 1 course
 
 Hosted on Heroku:
 https://clock-hand-angle-two.herokuapp.com
