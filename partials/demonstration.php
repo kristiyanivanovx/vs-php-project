@@ -12,11 +12,13 @@
             if (isset($_SESSION['result'])) {
                 echo "<div>";
 
-                if ($_SESSION['result'] !== "Невалидни данни.") {
+                if ($_SESSION['result'] == "Невалидни данни.") {
+                    echo "<h5 class='highlight'>". $_SESSION['result'] . "</h5>";
+                } else {
                     echo "<h5>Следващия път, когато ще има такъв ъгъл между стрелките е:</h5><br/>";
+                    echo "<h5 class='highlight'>". $_SESSION['result'] . "</h5>";
                 }
 
-                echo "<h5 class='highlight'>". $_SESSION['result'] . "</h5>";
                 echo "</div>";
             }
         ?>

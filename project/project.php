@@ -10,7 +10,7 @@ function calculateAngle($hours, $minutes, $seconds): string
 {
     // calculate the angles between the hour and minute hands with reference to 12:00
     $hour_angle = 0.5 * (60 * $hours + ($minutes + $seconds / 60));
-    $minute_angle = 6 * $minutes + (6 * $seconds / 60);
+    $minute_angle = 6 * ($minutes + $seconds / 60);
 
     // find the difference between the two angles
     $angle = abs($hour_angle - $minute_angle);
@@ -22,9 +22,9 @@ function calculateAngle($hours, $minutes, $seconds): string
     return $angle;
 }
 
-// 1. get input and validate it
+// 1. get input and validate it (if + regex)
 // 2. increase time, check if angle /almost/ matches
-// 3. if it matches, print it
+// 3. if it matches, return the result and print it
 // 4. else, go to 2
 
 /**
@@ -34,13 +34,14 @@ function calculateAngle($hours, $minutes, $seconds): string
  */
 function clockHandAngle2($angle, $timeNow): string
 {
+    // if input (timeNow) is in valid format, return 1 or else, return 0
     $pattern = '/^[0-1]?[0-9]:[0-5][0-9]:[0-5][0-9]$/';
     $valid = preg_match($pattern, $timeNow);
 
     // validate that angle is numeric and not out of bounds
-    // if input is in valid format, return 1 and continue or else, return 0 and stop
     if ($angle > 180 || $angle < 0 || !is_numeric($angle) || !$valid) {
-        return "Невалидни данни.";
+        $_SESSION['result'] = "Невалидни данни.";
+        return $_SESSION['result'];
     }
 
     list($hours, $minutes, $seconds) = explode(":", $timeNow);
