@@ -12,7 +12,7 @@ function calculateAngle($hours, $minutes, $seconds): string
     $hour_angle = 0.5 * (60 * $hours + ($minutes + $seconds / 60));
     $minute_angle = 6 * $minutes + (6 * $seconds / 60);
 
-    // find the difference between two angles
+    // find the difference between the two angles
     $angle = abs($hour_angle - $minute_angle);
 
     if ($angle > 180) {
