@@ -14,13 +14,16 @@
         Clock Hand Angle 2 - Кристиян Иванов
     </title>
     <script src="https://kit.fontawesome.com/c952ac5cde.js" crossorigin="anonymous"></script>
-<!--    <script src="./js/index.js"></script>-->
-    <link rel="manifest" href="./manifest.webmanifest">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="static/style.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- bootstrap 4.6 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <!-- bootstrap 4.0 -->
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"-->
+    <!--          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
 </head>
 <body>
 
@@ -43,12 +46,6 @@
 <!-- Scripts -->
 
 <?php include 'partials/scripts.php' ?>
-
-<script>
-    if ('serviceWorker' in navigator) {
-       navigator.serviceWorker.register('./js/service-worker.js');
-    }
-</script>
 
 </body>
 </html>
