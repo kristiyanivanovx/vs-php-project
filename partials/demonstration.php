@@ -11,6 +11,7 @@
             Main();
             if (isset($_SESSION['result'])) {
                 echo "<div>";
+                echo "<br/>";
 
                 if ($_SESSION['result'] == "Невалидни данни.") {
                     echo "<h5 class='highlight'>". $_SESSION['result'] . "</h5>";
