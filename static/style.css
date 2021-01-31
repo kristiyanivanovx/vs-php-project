@@ -20,11 +20,11 @@ html, body {
 }
 
 .active a {
-    color: #38e399 !important;
+    color: #30c485 !important;
 }
 
 #active {
-    color: #38e399 !important;
+    color: #30c485 !important;
 }
 
 /* navbar */
@@ -137,7 +137,7 @@ form input#angle {
     background-color: #fafafa;
     border-radius: 3px;
     border: 1px solid #cccccc;
-    padding: 5px;
+    padding: 3px;
     font-size: 1.1em;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
