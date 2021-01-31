@@ -2,7 +2,6 @@
     <a class="navbar-brand" href="#">
         <img class="logo" src="static/logo.png">
         <span class="spanOne">Clock Hand Angle 2</span>
-        <span class="spanFive"></span><span class="spanFour"> - Кристиян Иванов</span>
     </a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"

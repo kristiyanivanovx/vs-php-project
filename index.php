@@ -11,7 +11,7 @@
           content="Clock Hand Angle 2 Проект, изготвен от Кристиян Иванов. Възложен от Враца Софтуер."/>
     <meta name="Keywords" content="clock, hand, angle, clockHandAngle2, project, php, vratsa, software, community"/>
     <title>
-        Clock Hand Angle 2 - Кристиян Иванов
+        Clock Hand Angle 2
     </title>
     <script src="https://kit.fontawesome.com/c952ac5cde.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
