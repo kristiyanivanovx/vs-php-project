@@ -19,7 +19,7 @@ html, body {
     /* padding-left: .5rem; */
 }
 
-.active a, .subscription {
+.active a {
     color: #38e399 !important;
 }
 
@@ -31,11 +31,6 @@ html, body {
 
 .navbar-brand {
     font-size: 150%;
-}
-
-.navbar {
-    /* padding: .1rem; */
-    padding: 0rem;
 }
 
 .navbar-nav li {
@@ -56,18 +51,6 @@ html, body {
     padding-top: 2rem;
 }
 
-.eight-five {
-    width: 85%;
-    margin: 0 auto;
-    padding-top: 2rem;
-}
-
-.eight-five hr {
-    border-top: 2px solid #b4b4b4;
-    width: 95%;
-    margin-top: .3rem;
-    margin-bottom: 1rem;
-}
 
 .welcome hr {
     border-top: 2px solid #b4b4b4;
@@ -98,18 +81,6 @@ html, body {
     color: #217c54;
 }
 
-.w-85 {
-    width: 85%;
-}
-
-.w-65 {
-    width: 65%;
-}
-
-.big {
-    font-size: 1000%;
-    color: #217c54;
-}
 
 /* footer */
 
@@ -145,27 +116,11 @@ hr.bottom{
     margin-bottom: 1rem;
 }
 
-/* custom margins for images */
-
-.margin-bottom {
-    margin-bottom: 1.5rem;
-}
-
-.margin-lr {
-    margin-left: 0.75rem;
-    margin-right: 0.75rem;
-}
-
-.spanFour {
-    color: #747272;
-}
-
 .spanOne {
     color: #36bc80;
 }
 
 #bars {
-    /* 38bce3 */
     color: #38e399;
 }
 
@@ -216,46 +171,33 @@ form input#submit:hover{
 /*---Media Queries --*/
 
 @media (max-width: 992px) {
-    .spanOne, .spanFour {
+    .spanOne {
         font-size: 120%;
-    }
-    .social a {
-        font-size: 4em;
-        padding: 2rem;
     }
     .logo {
         width: 9%;
         height: 9%;
     }
-    .car-50 {
-        max-width: 80%;
-        max-height: 80%;
-    }
 }
 
 @media (max-width: 768px) {
-    .nav-item, .dropdown-item {
-        font-size: 100%;
-    }
-
-    .spanOne, .spanFour {
+    .spanOne {
         font-size: 90%;
-    }
-    .social a {
-        font-size: 2.5em;
-        padding: 1.2rem;
-    }
-    .display-4 {
-        font-size: 200%;
     }
     .logo {
         width: 8%;
         height: 8%;
     }
+    .nav-item {
+        font-size: 100%;
+    }
+    .display-4 {
+        font-size: 200%;
+    }
 }
 
 @media (max-width: 627px) {
-    .spanOne, .spanFour {
+    .spanOne {
         visibility: hidden;
         display: none;
     }
@@ -279,12 +221,8 @@ form input#submit:hover{
         width: 19%;
         height: 19%;
     }
-    .nav-item, .dropdown-item {
+    .nav-item {
         font-size: 90%;
-    }
-    .social a {
-        font-size: 1.9em;
-        padding: .5rem;
     }
 }
 
@@ -300,35 +238,4 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
     background: #174958;
-}
-
-/*
-Extra small (xs) devices (portrait phones, less than 576px)
-Default in Bootstrap
-
-Small (sm) devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-
-Medium (md) devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-
-Large (lg) devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-
-Extra (xl) large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... }
-*/
-
-/*--- Bootstrap Padding Fix --*/
-[class*="col-"] {
-    padding: 1rem;
-}
-
-/*---Firefox Bug Fix --*/
-.carousel-item {
-    transition: -webkit-transform 0.5s ease;
-    transition: transform 0.5s ease;
-    transition: transform 0.5s ease, -webkit-transform 0.5s ease;
-    -webkit-backface-visibility: visible;
-    backface-visibility: visible;
 }
