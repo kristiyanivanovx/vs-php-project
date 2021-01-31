@@ -171,9 +171,6 @@ form input#submit:hover{
 /*---Media Queries --*/
 
 @media (max-width: 992px) {
-    .spanOne {
-        font-size: 120%;
-    }
     .logo {
         width: 9%;
         height: 9%;
@@ -181,9 +178,6 @@ form input#submit:hover{
 }
 
 @media (max-width: 768px) {
-    .spanOne {
-        font-size: 90%;
-    }
     .logo {
         width: 8%;
         height: 8%;
@@ -197,13 +191,13 @@ form input#submit:hover{
 }
 
 @media (max-width: 627px) {
-    .spanOne {
-        visibility: hidden;
-        display: none;
-    }
     .logo {
         width: 23%;
         height: 23%;
+    }
+    .spanOne {
+        visibility: hidden;
+        display: none;
     }
     h1.display-4 {
         font-size: xxx-large !important;
