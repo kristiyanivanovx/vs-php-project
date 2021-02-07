@@ -61,7 +61,7 @@ function clockHandAngle2($angle, $timeNow): string
 			$hours -= 12;
 		}
 
-		// 0.10 no good - test 2; 0.07 - no good - test 4; 0.08, 0.09 - work fine
+		// 0.10 no good - test 2, 3; 0.07 no good - test 4; 0.08, 0.09 - works fine
 		$margin_of_error = 0.085;
 		$new_angle = calculateAngle($hours, $minutes, $seconds);
 
@@ -129,4 +129,4 @@ function TestCHA2()
 }
 
 //TestCHA();
-TestCHA2();
+//TestCHA2();
